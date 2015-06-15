@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+@IMPORT url("father.css");
+body {
+border: 1px solid black;
+}
+table{
+	border-collapse: collapse;
+	border-top: 2px solid #333;
+	border-bottom: 1px solid #333;
+	width: 100%
+}
+/* 
+
+table th,td{
+	margin: 0;
+	padding: 8px;
+}
+table td{
+	border: 1px solid black;
+	text-align: center;
+	background-color: #c1a8d7;
+	
+	color: white;
+	width: 150px;
+}
+table td2{
+		border: 1px solid black;
+	text-align: center;
+}
+table tr{
+	border: 1px solid black;
+	height: 50px;
+}
+ 
+ */
+
+
+
+.trClass {
+	border: 1px solid black;
+	height: 50px;
+}
+
+.tdClass {
+	border: 1px solid black;
+	text-align: center;
+	/* background-color: #c1a8d7; */
+	
+	color: white;
+	width: 150px;
+}
+
+.tdClass2 {
+	border: 1px solid black;
+	text-align: center;
+}
