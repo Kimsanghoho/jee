@@ -5,14 +5,18 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
+	<style>
+		@IMPORT url("<%=request.getContextPath()%>/css/movieView.css");
+	</style>
 </head>
 <body>
 	<div >
-	<table>
+	<table id="table">
 		<tr style="">
 			<td>
 			<a href=""><img src="<%=request.getContextPath()%>/images/1.JPG"   /></a>
 			</td>
+			
 			<td><img src="<%=request.getContextPath()%>/images/2.JPG"  /></td>
 			<td><img src="<%=request.getContextPath()%>/images/3.JPG"  /></td>
 			<td><img src="<%=request.getContextPath()%>/images/4.JPG"  /></td>
