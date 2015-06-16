@@ -8,10 +8,27 @@
 	<style>
 		@IMPORT url("../../css/model2/kaup.css");
 	</style>
+	<script type="text/javascript">
+function join() {
+	<%-- location.href = "<%=request.getContextPath()%>/member/joinForm" --%>
+	document.frmjoin.sumit();
+}
+	function login() {
+		/* if(document.frmlogin.id.value.length == 0){
+			alert("아이디를 적어주세요");
+			frmlogin.id.focus(); //커서 움직이는거
+		}
+		if(document.frmlogin.password.value==""){
+			aleat("비밀번호는 반드시 입력");
+			frmlogin.password.focus();
+		} */
+		document.frmLogin.submit();
+	}
+	</script>
 </head>
 <body>
 
-<form action="<%=request.getContextPath()%>/model2/join.do" method="post">
+<form action="<%=request.getContextPath()%>/model2/join.do" method="post" name="frmlogin" >
 	<fieldset>
 	<legend>회원가입</legend>
 		<table>
@@ -47,14 +64,15 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input type="submit" value="전송" />
+				<!-- <input type="submit" value="전송" /> -->
+				<img src="<%=request.getContextPath()%>/images/btnlogin.jpg" style="cursor: pointer" alt="" onclick="return login()" />
 				</td>
 			</tr>
 		</table>
 	</fieldset>
 </form>
 
-<form action="<%=request.getContextPath()%>/model2/login.do" method="post">
+<form action="<%=request.getContextPath()%>/model2/login.do" method="post" name="frmlogin">
 	<fieldset>
 	<legend>로그인</legend>
 		<table>
@@ -72,7 +90,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<input type="submit" value="전송" />
+				<!-- <input type="submit" value="전송" /> -->
+				<img src="<%=request.getContextPath()%>/images/btnjoin.gif" style="cursor: pointer" alt="" onclick="return join()" />
 				</td>
 			</tr>
 		</table>

@@ -33,7 +33,7 @@ public class MemberController extends HttpServlet {
 		switch (request.getServletPath()) {
 		case "/model2/join.do"			: 
 			
-
+			
 			String name = request.getParameter("name");
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
