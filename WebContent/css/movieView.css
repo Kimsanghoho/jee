@@ -4,3 +4,15 @@
 	text-align : center;
 	margin:70px 0 0px 350px ;
 }
+table tr td{
+	text-align: center;
+}
+a {
+    color: #222;
+    text-decoration: none  /* a링크는 하이퍼택스트 문자인데 밑줄을 그리지 말라 */
+}
+ 
+a:hover aa {
+    color: #390;
+    text-decoration: underline /* 호버이벤트에는 밑줄이 생겻다 안생겻다 하게 하라 */
+}

@@ -27,8 +27,6 @@
 <div >
 <hr  style="width: 400px; height: 20px; border-color: block;"/>
 <div style="text-align: center;">
-${msg }
-<br />
 <%
 String[][] seat = new String[3][5];
 if(request.getAttribute("seat")==null){
@@ -80,6 +78,28 @@ if(request.getAttribute("seat")==null){
    <input type="submit" value="등록">
 	</form>
 </div>
+</div>
+<div>
+<form action="<%=request.getContextPath()%>/reservation/checkOut.do">
+		<fieldset>
+			<legend>취소내용</legend>
+			<ol>
+				<li>
+				<label for="prod">좌석</label>
+				<input type="text" name="id" id="id" placeholder="아이디를 입력하세요 "/>
+				</li>
+				<li>
+				<label for="num">열번호</label>
+				<input id="floor" name="floor" type="number" min="1" max="3" value="1" />
+				<br />
+				<label for="num">행번호</label>
+				<input id="row" name="row" type="number" min="1" max="5" value="1" />
+				</li>
+			</ol>
+		</fieldset>
+		
+   <input type="submit" value="등록">
+	</form>
 </div>
 </body>
 </html>

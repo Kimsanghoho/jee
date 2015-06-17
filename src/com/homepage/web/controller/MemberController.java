@@ -19,16 +19,31 @@ import com.homepage.web.services.MemberService;
  * Servlet implementation class memberController
  * Story 로그인과 회원가입
  */
-@WebServlet({"/model2/join.do","/model2/login.do"})
+@WebServlet({"/model2/join.do","/model2/login.do","/member/searchIdForm.do","/member/searchPassForm.do"})
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MemberBean bean = new MemberBean();
 	MemberService  service = new MemberServiceImpl();
 	Map<String,Object> map = new HashMap<String,Object>();
     
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String path = request.getServletPath();
+		switch (path) {
+		case "/model2/searchIdForm.do" : 
+			 RequestDispatcher dispatcher3 = request.getRequestDispatcher("/views/model2/searchIdForm.jsp");
+			 dispatcher3.forward(request, response);
+			break;
+			
+		case "/model2/searchPassForm.do" :
+			RequestDispatcher dispatcher4 = request.getRequestDispatcher("/views/model2/searchPasssForm.jsp");
+			dispatcher4.forward(request, response);
+			break;
+		}
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		switch (request.getServletPath()) {
 		case "/model2/join.do"			: 
@@ -96,7 +111,7 @@ public class MemberController extends HttpServlet {
 				dispatcher.forward(request, response);
 				break;
 			}
-			break;
+		
 		}
 
 	}

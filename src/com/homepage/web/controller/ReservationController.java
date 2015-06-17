@@ -29,7 +29,7 @@ public class ReservationController extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
         int floor =0;
         int row =0;
@@ -38,10 +38,12 @@ public class ReservationController extends HttpServlet {
 		String path = request.getServletPath();
         switch (path) {
         case "/reservation/checkIn.do":
-        	floor = Integer.parseInt(request.getParameter("floor"))-1;
-        	row=Integer.parseInt(request.getParameter("row"))-1;
+        	
+        	floor = Integer.parseInt(request.getParameter("floor"));
+        	row=Integer.parseInt(request.getParameter("row"));
         	id = request.getParameter("id");
         	msg=service.checkIn(floor,row,id);
+        	seat[floor][row] = id;
         	seat = service.checkIn();
         	request.setAttribute("seat",seat);
         	request.setAttribute("msg",msg);
@@ -50,8 +52,10 @@ public class ReservationController extends HttpServlet {
            	dispatcher.forward(request, response);
             break; // 체크인
         case "/reservation/checkOut.do":
-        	msg=service.checkOut(floor,row,id);
-        	request.setAttribute("msg", msg);
+        	String msg2=service.checkOut(floor,row,id);
+        	request.setAttribute("seat",seat);
+        	request.setAttribute("msg",msg2);
+        	seat[floor][row] = null;
         	   RequestDispatcher dispatcher1 = request.getRequestDispatcher("/views/model2/reservationForm.jsp");
            	dispatcher1.forward(request, response);
             break; // 체크아웃
